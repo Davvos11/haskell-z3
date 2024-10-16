@@ -310,6 +310,7 @@ module Z3.Base (
   , mkSeqExtract
   , mkSeqReplace
   , mkSeqAt
+  , mkSeqNth
   , mkSeqLength
   , mkSeqIndex
   , mkStrToInt
@@ -2049,6 +2050,13 @@ mkSeqAt :: Context
         -> AST -- ^ index
         -> IO AST
 mkSeqAt = liftFun2 z3_mk_seq_at
+
+-- | Retrieve from s the element positioned at position index.
+mkSeqNth :: Context
+        -> AST -- ^ s
+        -> AST -- ^ index
+        -> IO AST
+mkSeqNth = liftFun2 z3_mk_seq_nth
 
 -- | Return the length of the sequence s.
 mkSeqLength :: Context

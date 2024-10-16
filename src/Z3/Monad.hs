@@ -231,6 +231,7 @@ module Z3.Monad
   , mkSeqExtract
   , mkSeqReplace
   , mkSeqAt
+  , mkSeqNth
   , mkSeqLength
   , mkSeqIndex
   , mkStrToInt
@@ -1821,6 +1822,13 @@ mkSeqAt :: MonadZ3 z3
         -> AST -- ^ index
         -> z3 AST
 mkSeqAt = liftFun2 Base.mkSeqAt
+
+-- | Retrieve from s the element positioned at position index.
+mkSeqNth :: MonadZ3 z3
+        => AST -- ^ s
+        -> AST -- ^ index
+        -> z3 AST
+mkSeqNth = liftFun2 Base.mkSeqNth
 
 -- | Return the length of the sequence s.
 mkSeqLength :: MonadZ3 z3 => AST -> z3 AST
